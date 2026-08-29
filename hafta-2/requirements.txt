@@ -1,0 +1,7 @@
+
+### `requirements.txt`
+
+```text
+torch
+numpy
+graphviz
