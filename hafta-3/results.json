@@ -1,0 +1,72 @@
+[
+  {
+    "language": "English",
+    "name_count": 29494,
+    "vocabulary_size": 27,
+    "count_model_nll": 2.4543,
+    "neural_model_nll": 2.4619,
+    "count_samples": [
+      "dexze",
+      "momasurailezitynn",
+      "konimittain",
+      "llayn",
+      "ka",
+      "da",
+      "staiyaubrtthrigotai",
+      "moliellavo",
+      "ke",
+      "teda"
+    ],
+    "neural_samples": [
+      "xri",
+      "kevny",
+      "zisoudeeen",
+      "cosheromidanna",
+      "mie",
+      "aliches",
+      "kya",
+      "madethewalerinn",
+      "jouretone",
+      "b"
+    ],
+    "first_neural_loss": 3.7623,
+    "last_neural_loss": 2.4619,
+    "plot": "bigram_english_counts.png",
+    "loss_plot": "bigram_english_loss.png"
+  },
+  {
+    "language": "Turkish",
+    "name_count": 12804,
+    "vocabulary_size": 30,
+    "count_model_nll": 2.4982,
+    "neural_model_nll": 2.5067,
+    "count_samples": [
+      "faş",
+      "ayt",
+      "özoğbe",
+      "me",
+      "tan",
+      "hsoğip",
+      "n",
+      "bamiyışaba",
+      "tun",
+      "raşğsebunaceguğl"
+    ],
+    "neural_samples": [
+      "tirtülş",
+      "ağdin",
+      "nkın",
+      "yshubigüçakan",
+      "n",
+      "cağmerağayanfsekunülcuriyürora",
+      "mu",
+      "ne",
+      "mineha",
+      "f"
+    ],
+    "first_neural_loss": 3.9438,
+    "last_neural_loss": 2.5068,
+    "plot": "bigram_turkish_counts.png",
+    "loss_plot": "bigram_turkish_loss.png"
+  }
+]
