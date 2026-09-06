@@ -1,18 +1,11 @@
-# YZ50 - Neural Networks Week 1
+# YZ50 Çalışmaları
 
-Bu repository YZ50 programının ilk hafta neural networks çalışması için oluşturuldu.
+Bu repository, YZ50 programındaki haftalık yapay zekâ ve sinir ağları çalışmalarımı tek yerde toplar.
 
-Bu hafta hazır machine learning kütüphaneleri kullanmadan temel neural network yapılarını anlamaya çalıştım.
+## Klasörler
 
-## Yaptıklarım
+- [Hafta 1](./hafta-1): Nöron, layer, ReLU, MSE, numerical derivative ve gradient descent
+- [Hafta 2](./hafta-2): Micrograd, computation graph, backpropagation ve gradient kontrolü
+- [Hafta 3](./hafta-3): Bigram karakter modeli ve ilk language model çalışması
 
-- Tek nöron forward pass
-- Birden fazla nörondan oluşan layer
-- ReLU activation function
-- Mean Squared Error loss
-- Parametre değişiminin loss üzerindeki etkisi
-- Loss curve
-- Numerical derivative
-- Gradient descent
-
-Kodun temel amacı bir modelin parametrelerini değiştirerek loss'u nasıl düşürdüğünü gözlemlemek.
+Her klasörde o haftaya ait kodlar, açıklamalar ve gerekli çalışma dosyaları yer alır.
