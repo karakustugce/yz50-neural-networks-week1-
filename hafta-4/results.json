@@ -1,0 +1,243 @@
+{
+  "gorev1": {
+    "isim_sayisi": 29494,
+    "X_shape": [
+      211328,
+      3
+    ],
+    "Y_shape": [
+      211328
+    ],
+    "emb_shape": [
+      211328,
+      3,
+      2
+    ]
+  },
+  "gorev2": {
+    "elle_loss": 17.869396,
+    "cross_entropy_loss": 17.869398,
+    "parametre_sayisi": 3481
+  },
+  "gorev3": {
+    "tek_batch_overfit_loss": 0.2254,
+    "split_boyutlari": [
+      169134,
+      21141,
+      21053
+    ],
+    "secilen_lr": 0.1,
+    "adim": 40000,
+    "train_loss": 2.3379,
+    "dev_loss": 2.3355
+  },
+  "gorev4": {
+    "adim": 200000,
+    "modeller": [
+      {
+        "model": "emb2_h100",
+        "parametre": 3481,
+        "train_loss": 2.2566,
+        "dev_loss": 2.2645
+      },
+      {
+        "model": "emb2_h300",
+        "parametre": 10281,
+        "train_loss": 2.2301,
+        "dev_loss": 2.2406
+      },
+      {
+        "model": "emb10_h200",
+        "parametre": 11897,
+        "train_loss": 2.1473,
+        "dev_loss": 2.1881
+      }
+    ],
+    "bigram_dev_loss": 2.4567,
+    "en_yakin_harfler": {
+      ".": "n",
+      "a": "o",
+      "b": "f",
+      "c": "t",
+      "d": "k",
+      "e": "u",
+      "f": "d",
+      "g": "v",
+      "h": "j",
+      "i": "u",
+      "j": "h",
+      "k": "d",
+      "l": "b",
+      "m": "h",
+      "n": "x",
+      "o": "a",
+      "p": "t",
+      "q": "l",
+      "r": "w",
+      "s": "x",
+      "t": "c",
+      "u": "e",
+      "v": "m",
+      "w": "r",
+      "x": "s",
+      "y": "x",
+      "z": "r"
+    },
+    "bigram_ornekler": [
+      "careah",
+      "ami",
+      "hlelikimri",
+      "reety",
+      "ssandane",
+      "mahnen",
+      "deliyrt",
+      "kaqui",
+      "nelenia",
+      "chaiivin",
+      "le",
+      "g",
+      "d",
+      "br",
+      "jori"
+    ],
+    "mlp_ornekler": [
+      "carmah",
+      "ambell",
+      "khi",
+      "milia",
+      "aty",
+      "halaysa",
+      "jazhuel",
+      "deliah",
+      "jareeigh",
+      "kasia",
+      "chaiiy",
+      "kaleigh",
+      "ham",
+      "pois",
+      "quint"
+    ]
+  },
+  "gorev5": {
+    "beklenen_ilk_loss": 3.2958,
+    "naive": {
+      "ilk_loss": 27.9192,
+      "doymus_oran": 0.6334,
+      "olu_noron": 0,
+      "train_loss": 2.1473,
+      "dev_loss": 2.1881
+    },
+    "kaiming": {
+      "ilk_loss": 3.3206,
+      "doymus_oran": 0.0959,
+      "olu_noron": 0,
+      "train_loss": 2.0416,
+      "dev_loss": 2.1155
+    }
+  },
+  "gorev6": {
+    "adim": 200000,
+    "modeller": {
+      "kaiming_bn_yok": {
+        "baslangic_doymus_oran": 0.1036,
+        "train_loss": 2.0416,
+        "dev_loss": 2.1155
+      },
+      "kaiming_bn_var": {
+        "baslangic_doymus_oran": 0.0066,
+        "train_loss": 2.0705,
+        "dev_loss": 2.1208
+      },
+      "naive_bn_var": {
+        "baslangic_doymus_oran": 0.0066,
+        "train_loss": 2.1926,
+        "dev_loss": 2.2029
+      }
+    },
+    "running_vs_kalibre_mean_max_fark": 0.0286,
+    "kalibre_dev_loss": 2.1205,
+    "bn_ornekler": [
+      "carmah",
+      "ambrillia",
+      "jori",
+      "reigh",
+      "skanden",
+      "jazhita",
+      "deliah",
+      "jareei",
+      "nellara",
+      "chaiir"
+    ]
+  },
+  "gorev7": {
+    "isim_sayisi": 12804,
+    "vocab": 30,
+    "bigram_dev_loss": 2.4986,
+    "modeller": {
+      "mlp_bn_yok": {
+        "train_loss": 1.9057,
+        "dev_loss": 2.1444
+      },
+      "mlp_bn_var": {
+        "train_loss": 1.9572,
+        "dev_loss": 2.1115
+      }
+    },
+    "en_iyi_model": "mlp_bn_var",
+    "test_loss": 2.0978,
+    "bigram_ornekler": [
+      "calakorat",
+      "devrş",
+      "örira",
+      "alfencahursan",
+      "k",
+      "vayaytareyşdri",
+      "gür",
+      "gülgöiğözilp",
+      "aygüzaraimananabiyrilp",
+      "kterşeşkül",
+      "ayaçoko",
+      "iy",
+      "semelinduhaday",
+      "ndoçaldetezek",
+      "ami",
+      "hsensuki",
+      "abebolmer",
+      "seri",
+      "ur",
+      "s"
+    ],
+    "mlp_ornekler": [
+      "caif",
+      "ogal",
+      "devriyar",
+      "rahat",
+      "köyüksoy",
+      "tekin",
+      "sayyap",
+      "yedri",
+      "gülderlikigül",
+      "fulay",
+      "demirim",
+      "nazakın",
+      "bir",
+      "kemiş",
+      "şahı",
+      "özakoconiş",
+      "cemali",
+      "duhan",
+      "oklazağer",
+      "tezek"
+    ],
+    "listede_olanlar": [
+      "tekin",
+      "cemali",
+      "duhan"
+    ]
+  },
+  "gorev8_bn_katlama": {
+    "logits_max_fark": 1.9073486328125e-06,
+    "dev_bn": 2.181625,
+    "dev_katlanmis": 2.181625
+  }
+}
