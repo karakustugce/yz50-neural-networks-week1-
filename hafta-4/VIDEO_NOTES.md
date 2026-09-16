@@ -2,8 +2,6 @@
 
 ## 1. Giriş
 
-Geçen hafta bigram modeli yalnızca bir önceki harfe bakıyordu. Trigram'a çıkınca tablo 27×27×27 oluyor ve veri yetmiyor. Bu hafta tablo yerine Bengio'nun 2003 makalesindeki modeli kurdum: harfleri küçük vektörlere çevirip önceki üç harfi bir MLP'ye veriyorum.
-
 ## 2. Veri seti ve embedding (`01_dataset_embedding.py`)
 
 - Her ismin başına üç nokta koyup pencereyi harf harf kaydırdım. `X` üç harfin indeksi, `Y` sıradaki harf.
@@ -58,7 +56,4 @@ Geçen hafta bigram modeli yalnızca bir önceki harfe bakıyordu. Trigram'a ç�
 
 Tahmin anında BN sabit bir doğrusal işlem olduğu için `W1` ve `b1` içine katladım. Aynı dev loss'u (2.181625) verdi.
 
-## 10. Kapanış — nerede zorlandım
 
-- **(kendi deneyimini ekle)**
-- Önerilen: `view` ile boyutları doğru düzleştirmek, BN'de eğitim ve tahmin modunu ayırmak, Türkçede train ile dev arasındaki farkı yorumlamak.
