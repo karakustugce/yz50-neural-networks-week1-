@@ -1,0 +1,30 @@
+{
+  "exercise_1": {
+    "loss": 3.410197,
+    "gradient_sayisi": 26,
+    "exact": 11,
+    "approximate": 26,
+    "en_buyuk_fark": 7.450580596923828e-09
+  },
+  "exercise_2_3": {
+    "cross_entropy": {
+      "exact": false,
+      "approximate": true,
+      "maxdiff": 4.6566128730773926e-09
+    },
+    "batchnorm": {
+      "exact": false,
+      "approximate": true,
+      "maxdiff": 1.3969838619232178e-09
+    }
+  },
+  "exercise_4": {
+    "steps": 200000,
+    "batch_size": 32,
+    "n_hidden": 200,
+    "son_minibatch_loss": 2.03242,
+    "train_loss": 2.075069,
+    "dev_loss": 2.121208,
+    "autograd_kullanildi": false
+  }
+}
