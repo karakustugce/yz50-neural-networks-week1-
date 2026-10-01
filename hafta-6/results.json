@@ -1,0 +1,698 @@
+{
+  "en_3_flat": {
+    "language": "en",
+    "context": 3,
+    "embedding": 10,
+    "hidden": 200,
+    "steps": 50000,
+    "parameters": 12097,
+    "train_loss": 2.1185,
+    "dev_loss": 2.1479,
+    "shapes_batch_2": [
+      [
+        "Embedding",
+        [
+          2,
+          3,
+          10
+        ]
+      ],
+      [
+        "Flatten",
+        [
+          2,
+          30
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          200
+        ]
+      ],
+      [
+        "BatchNorm1d",
+        [
+          2,
+          200
+        ]
+      ],
+      [
+        "Tanh",
+        [
+          2,
+          200
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          27
+        ]
+      ]
+    ],
+    "samples": [
+      "carmahza",
+      "jahmarik",
+      "mrix",
+      "taty",
+      "salaysie",
+      "mahnee",
+      "delynn",
+      "jareen",
+      "ner",
+      "kia",
+      "chaiivan",
+      "leigh",
+      "ham",
+      "joce",
+      "quinn"
+    ]
+  },
+  "en_8_flat": {
+    "language": "en",
+    "context": 8,
+    "embedding": 10,
+    "hidden": 200,
+    "steps": 50000,
+    "parameters": 22097,
+    "train_loss": 2.018,
+    "dev_loss": 2.0718,
+    "shapes_batch_2": [
+      [
+        "Embedding",
+        [
+          2,
+          8,
+          10
+        ]
+      ],
+      [
+        "Flatten",
+        [
+          2,
+          80
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          200
+        ]
+      ],
+      [
+        "BatchNorm1d",
+        [
+          2,
+          200
+        ]
+      ],
+      [
+        "Tanh",
+        [
+          2,
+          200
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          27
+        ]
+      ]
+    ],
+    "samples": [
+      "carmah",
+      "amille",
+      "khirmir",
+      "rehty",
+      "salaya",
+      "ejanonte",
+      "deliah",
+      "jareei",
+      "nellara",
+      "chaiir",
+      "kaleigh",
+      "hamaria",
+      "dessan",
+      "sulin",
+      "alivabi"
+    ]
+  },
+  "en_8_wavenet": {
+    "language": "en",
+    "context": 8,
+    "embedding": 24,
+    "hidden": 128,
+    "steps": 50000,
+    "parameters": 76579,
+    "train_loss": 1.92,
+    "dev_loss": 2.0198,
+    "shapes_batch_2": [
+      [
+        "Embedding",
+        [
+          2,
+          8,
+          24
+        ]
+      ],
+      [
+        "Flatten",
+        [
+          2,
+          4,
+          48
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          4,
+          128
+        ]
+      ],
+      [
+        "BatchNorm1d",
+        [
+          2,
+          4,
+          128
+        ]
+      ],
+      [
+        "Tanh",
+        [
+          2,
+          4,
+          128
+        ]
+      ],
+      [
+        "Flatten",
+        [
+          2,
+          2,
+          256
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          2,
+          128
+        ]
+      ],
+      [
+        "BatchNorm1d",
+        [
+          2,
+          2,
+          128
+        ]
+      ],
+      [
+        "Tanh",
+        [
+          2,
+          2,
+          128
+        ]
+      ],
+      [
+        "Flatten",
+        [
+          2,
+          256
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          128
+        ]
+      ],
+      [
+        "BatchNorm1d",
+        [
+          2,
+          128
+        ]
+      ],
+      [
+        "Tanh",
+        [
+          2,
+          128
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          27
+        ]
+      ]
+    ],
+    "samples": [
+      "carmah",
+      "ambriell",
+      "kimri",
+      "rehty",
+      "salaya",
+      "ejazheen",
+      "deliyah",
+      "kaeli",
+      "nelmara",
+      "chaiir",
+      "kaleigh",
+      "hama",
+      "kinden",
+      "juliani",
+      "emira"
+    ]
+  },
+  "en_8_legacy_bn": {
+    "language": "en",
+    "context": 8,
+    "embedding": 24,
+    "hidden": 128,
+    "steps": 50000,
+    "parameters": 76579,
+    "train_loss": 1.9461,
+    "dev_loss": 2.0275,
+    "shapes_batch_2": [
+      [
+        "Embedding",
+        [
+          2,
+          8,
+          24
+        ]
+      ],
+      [
+        "Flatten",
+        [
+          2,
+          4,
+          48
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          4,
+          128
+        ]
+      ],
+      [
+        "BatchNorm1d",
+        [
+          2,
+          4,
+          128
+        ]
+      ],
+      [
+        "Tanh",
+        [
+          2,
+          4,
+          128
+        ]
+      ],
+      [
+        "Flatten",
+        [
+          2,
+          2,
+          256
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          2,
+          128
+        ]
+      ],
+      [
+        "BatchNorm1d",
+        [
+          2,
+          2,
+          128
+        ]
+      ],
+      [
+        "Tanh",
+        [
+          2,
+          2,
+          128
+        ]
+      ],
+      [
+        "Flatten",
+        [
+          2,
+          256
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          128
+        ]
+      ],
+      [
+        "BatchNorm1d",
+        [
+          2,
+          128
+        ]
+      ],
+      [
+        "Tanh",
+        [
+          2,
+          128
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          27
+        ]
+      ]
+    ],
+    "samples": [
+      "carmah",
+      "amillia",
+      "haimre",
+      "reyty",
+      "salaya",
+      "ejrah",
+      "braden",
+      "artina",
+      "eilie",
+      "martice",
+      "ihvik",
+      "leigh",
+      "hammerin",
+      "quinton",
+      "lilea"
+    ]
+  },
+  "tr_8_wavenet": {
+    "language": "tr",
+    "context": 8,
+    "embedding": 24,
+    "hidden": 128,
+    "steps": 50000,
+    "parameters": 77038,
+    "train_loss": 1.7141,
+    "dev_loss": 2.0144,
+    "shapes_batch_2": [
+      [
+        "Embedding",
+        [
+          2,
+          8,
+          24
+        ]
+      ],
+      [
+        "Flatten",
+        [
+          2,
+          4,
+          48
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          4,
+          128
+        ]
+      ],
+      [
+        "BatchNorm1d",
+        [
+          2,
+          4,
+          128
+        ]
+      ],
+      [
+        "Tanh",
+        [
+          2,
+          4,
+          128
+        ]
+      ],
+      [
+        "Flatten",
+        [
+          2,
+          2,
+          256
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          2,
+          128
+        ]
+      ],
+      [
+        "BatchNorm1d",
+        [
+          2,
+          2,
+          128
+        ]
+      ],
+      [
+        "Tanh",
+        [
+          2,
+          2,
+          128
+        ]
+      ],
+      [
+        "Flatten",
+        [
+          2,
+          256
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          128
+        ]
+      ],
+      [
+        "BatchNorm1d",
+        [
+          2,
+          128
+        ]
+      ],
+      [
+        "Tanh",
+        [
+          2,
+          128
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          30
+        ]
+      ]
+    ],
+    "samples": [
+      "caip",
+      "ogan",
+      "devrinör",
+      "racilek",
+      "cankos",
+      "tokbur",
+      "aytaş",
+      "yedri",
+      "güllerlif",
+      "gökben",
+      "aygünçerim",
+      "nasabay",
+      "ilbey",
+      "faşil",
+      "üremen"
+    ]
+  },
+  "tr_3_flat": {
+    "language": "tr",
+    "context": 3,
+    "embedding": 10,
+    "hidden": 200,
+    "steps": 50000,
+    "parameters": 12730,
+    "train_loss": 2.0288,
+    "dev_loss": 2.123,
+    "shapes_batch_2": [
+      [
+        "Embedding",
+        [
+          2,
+          3,
+          10
+        ]
+      ],
+      [
+        "Flatten",
+        [
+          2,
+          30
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          200
+        ]
+      ],
+      [
+        "BatchNorm1d",
+        [
+          2,
+          200
+        ]
+      ],
+      [
+        "Tanh",
+        [
+          2,
+          200
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          30
+        ]
+      ]
+    ],
+    "samples": [
+      "caifine",
+      "dedel",
+      "şebarra",
+      "alpkayan",
+      "bastır",
+      "vasay",
+      "acayidel",
+      "gül",
+      "gülgöigül",
+      "sumay",
+      "demirim",
+      "nanabiyo",
+      "tur",
+      "han",
+      "tokür"
+    ]
+  },
+  "tr_8_flat": {
+    "language": "tr",
+    "context": 8,
+    "embedding": 10,
+    "hidden": 200,
+    "steps": 50000,
+    "parameters": 22730,
+    "train_loss": 1.8813,
+    "dev_loss": 2.0555,
+    "shapes_batch_2": [
+      [
+        "Embedding",
+        [
+          2,
+          8,
+          10
+        ]
+      ],
+      [
+        "Flatten",
+        [
+          2,
+          80
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          200
+        ]
+      ],
+      [
+        "BatchNorm1d",
+        [
+          2,
+          200
+        ]
+      ],
+      [
+        "Tanh",
+        [
+          2,
+          200
+        ]
+      ],
+      [
+        "Linear",
+        [
+          2,
+          30
+        ]
+      ]
+    ],
+    "samples": [
+      "cairize",
+      "deder",
+      "şenrir",
+      "canfekay",
+      "hosan",
+      "korayay",
+      "acaybdul",
+      "gülderli",
+      "iğönmen",
+      "aygüz",
+      "raim",
+      "naşak",
+      "arisar",
+      "hanşel",
+      "üre"
+    ]
+  }
+}
