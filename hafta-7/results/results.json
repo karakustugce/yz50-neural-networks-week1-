@@ -1,0 +1,167 @@
+{
+  "config": {
+    "steps": 5000,
+    "block_size": 32,
+    "batch_size": 32,
+    "n_embd": 32,
+    "head_size": 32,
+    "learning_rate": 0.003,
+    "eval_batches": 100,
+    "eval_interval": 500,
+    "seed": 1337,
+    "batch_seed": 7331,
+    "eval_seed": 4242,
+    "sample_seed": 2026,
+    "threads": 2
+  },
+  "data": {
+    "characters": 1115394,
+    "vocab_size": 65,
+    "train_tokens": 1003854,
+    "val_tokens": 111540,
+    "sha256": "86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed",
+    "source": "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt"
+  },
+  "environment": {
+    "torch": "2.14.1+cpu",
+    "python": "3.12.14",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "device": "cpu"
+  },
+  "evaluation": "mean cross entropy (nats/token) over fixed random windows; not full val set",
+  "ai_contribution": "Code, experiments and explanations prepared by OpenAI Codex.",
+  "models": {
+    "bigram": {
+      "parameters": 4225,
+      "train_loss": 2.4653726172447206,
+      "val_loss": 2.486402051448822,
+      "seconds": 2.5863856230002966,
+      "history": [
+        {
+          "step": 0,
+          "train": 4.726675615310669,
+          "val": 4.72667272567749
+        },
+        {
+          "step": 500,
+          "train": 3.249034550189972,
+          "val": 3.2510858011245727
+        },
+        {
+          "step": 1000,
+          "train": 2.712927484512329,
+          "val": 2.7174933671951296
+        },
+        {
+          "step": 1500,
+          "train": 2.558513836860657,
+          "val": 2.5682185006141665
+        },
+        {
+          "step": 2000,
+          "train": 2.510701973438263,
+          "val": 2.5239180898666382
+        },
+        {
+          "step": 2500,
+          "train": 2.491339137554169,
+          "val": 2.5062603640556333
+        },
+        {
+          "step": 3000,
+          "train": 2.48090455532074,
+          "val": 2.497247838973999
+        },
+        {
+          "step": 3500,
+          "train": 2.474660408496857,
+          "val": 2.493149058818817
+        },
+        {
+          "step": 4000,
+          "train": 2.4706383419036864,
+          "val": 2.4900451254844667
+        },
+        {
+          "step": 4500,
+          "train": 2.4674222040176392,
+          "val": 2.4883375549316407
+        },
+        {
+          "step": 5000,
+          "train": 2.4653726172447206,
+          "val": 2.486402051448822
+        }
+      ],
+      "generated_text": "ROMEO:\nAnida rdly le swen's weasin d th heas tin and my f poit en's hisod pee'tonore\nSththerirot t ma suchiswswher sootrley oou, the,\n\nFe; fose mo'sengCEvenour fis d lll me y quthelkbou ooneacang phe.\nHe, XENNGl neens ar ainconensatiche wan sthin athis manf\nand LInld eme me ffore hor mi?\nWhis, amanks-fo ooowe besthupllloueam mas the;\nAPARD f Morsurer sit m wal d in kethe\nHemo honk s?\nHAbafothove s; by me"
+    },
+    "single_head": {
+      "parameters": 8321,
+      "train_loss": 2.3241641879081727,
+      "val_loss": 2.34668173789978,
+      "seconds": 11.068738588000087,
+      "history": [
+        {
+          "step": 0,
+          "train": 4.177382869720459,
+          "val": 4.178472166061401
+        },
+        {
+          "step": 500,
+          "train": 2.543824632167816,
+          "val": 2.542765395641327
+        },
+        {
+          "step": 1000,
+          "train": 2.436268165111542,
+          "val": 2.444348466396332
+        },
+        {
+          "step": 1500,
+          "train": 2.392350187301636,
+          "val": 2.408656132221222
+        },
+        {
+          "step": 2000,
+          "train": 2.3698342776298524,
+          "val": 2.3888596630096437
+        },
+        {
+          "step": 2500,
+          "train": 2.3531799793243406,
+          "val": 2.3740824031829835
+        },
+        {
+          "step": 3000,
+          "train": 2.3411603307724,
+          "val": 2.3643032455444337
+        },
+        {
+          "step": 3500,
+          "train": 2.33498726606369,
+          "val": 2.3599858808517458
+        },
+        {
+          "step": 4000,
+          "train": 2.334135637283325,
+          "val": 2.3656775188446044
+        },
+        {
+          "step": 4500,
+          "train": 2.32564569234848,
+          "val": 2.3514937376976013
+        },
+        {
+          "step": 5000,
+          "train": 2.3241641879081727,
+          "val": 2.34668173789978
+        }
+      ],
+      "generated_text": "ROMEO:\nOF da rdly le swen'd weasin ded hafral ighas get foromp egacy grod pee't akse\nSthes:\nWout tamawsnce I swher so thee ivit, the,\nWhe; fo wero's avilven.\n\n\nWicrd lwlo thy qourelk whe omarcangthhe.\n\nKASXENNGlo een'd woanwofrensat?\n\nAnw\nI sthin atimen the\nand thild hard wingeee hor sit I weve.\n\nINGE:\nOLow moft theacrio thm mam the;\nAnden forursout.\n\nMad\nAndo dure ket d\nMems honk sow yorfotho!\n\nAnd thim"
+    }
+  },
+  "comparison": {
+    "absolute_drop": 0.1397203135490419,
+    "relative_drop_percent": 5.619377343564655
+  }
+}
