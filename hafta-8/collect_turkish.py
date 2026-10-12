@@ -12,6 +12,9 @@ CATEGORIES = [
     "Ömer Seyfettin hikayeleri",
     "Mehmet Âkif Ersoy şiirleri",
     "Namık Kemal şiirleri",
+    "Tevfik Fikret şiirleri",
+    "Ziya Gökalp Şiirleri",
+    "Türkiye'de yayımlanan kamu malı eserler",
 ]
 AGENT = "YZ50-week8-character-LM/1.0 educational"
 

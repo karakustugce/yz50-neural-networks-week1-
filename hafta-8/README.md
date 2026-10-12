@@ -59,8 +59,9 @@ yaz.
 ## Türkçe metin
 
 collect_turkish.py Vikikaynak API'sinden Ömer Seyfettin hikâyeleri,
-Mehmet Âkif Ersoy şiirleri ve Namık Kemal şiirleri kategorilerindeki sayfaları
-derler. Korpus data/turkish.txt; sayfa başlığı, URL ve karakter sayısı
+Mehmet Âkif Ersoy şiirleri, Namık Kemal şiirleri, Tevfik Fikret şiirleri,
+Ziya Gökalp şiirleri ve Türkiye'de yayımlanan kamu malı eserler
+kategorilerindeki sayfaları derler. Korpus data/turkish.txt; sayfa başlığı, URL ve karakter sayısı
 data/turkish_sources.csv; toplam uzunluk ve farklı Unicode karakter sayısı
 data/turkish_metadata.json dosyalarına kaydolur. Karakter tokenizer'ında
 ş, ğ, İ gibi karakterlerin her biri ayrı token'dır. Yaklaşık 1 MB hedefini
