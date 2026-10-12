@@ -10,5 +10,7 @@ Bu repository, YZ50 programındaki haftalık yapay zekâ ve sinir ağları çal�
 - [Hafta 4](./hafta-4): MLP language model, Kaiming init ve BatchNorm
 - [Hafta 5](./hafta-5): Elle backpropagation, gradient doğrulama ve autograd'siz eğitim
 - [Hafta 6](./hafta-6): Kendi katman sınıflarım, 8 harflik hiyerarşik isim modeli, BatchNorm eksen düzeltmesi ve İngilizce/Türkçe deneyleri
+- [Hafta 7](./hafta-7): Tek causal self-attention head ve bigram karşılaştırması
+- [Hafta 8](./hafta-8): Multi-head attention, Transformer blokları ve Türkçe karakter GPT deneyi
 
 Her klasörde o haftaya ait kodlar, açıklamalar ve gerekli çalışma dosyaları yer alır.
