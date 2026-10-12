@@ -2,8 +2,7 @@
 
 Bu klasör multi-head attention, feed-forward, residual bağlantı, LayerNorm,
 dropout ve küçük GPT modeli için PyTorch kodu içerir. Kod ve anlatım AI yardımıyla
-hazırlanmıştır. Öğrenme tesliminde sonuçları kendi ortamında üret, incele ve
-videonu kendi cümlelerinle kaydet.
+hazırlanmıştır. Sonuçları Colab'da üret, kodu incele ve videonu kendi cümlelerinle kaydet.
 
 ## Google Colab çalıştırma
 
@@ -11,25 +10,36 @@ GPU runtime seçip Python 3.10+ ortamında hafta-8 dizininden:
 
     python -m pip install torch
     python test_models.py
-    python train.py --language shakespeare --all-stages --device auto
-    python collect_turkish.py
-    python train.py --language turkish --stage gpt --device auto
 
-Önce hızlı deneme için komutlara --steps 100 eklenebilir. Varsayılan eğitim
-5.000 adım, n_embd=128, n_head=4, n_layer=4, block_size=128, dropout=0.1 ve
+Önce hafta 7 ile aynı ayarlarda ablation/loss tablosu:
+
+    python train.py --language shakespeare --all-stages --steps 5000 --n-embd 32 --n-head 4 --n-layer 1 --block-size 32 --batch-size 32 --learning-rate 0.003 --dropout 0
+
+Bu ayarlar bigram ve single-head ölçümünü hafta 7'deki block_size=32,
+n_embd=32, batch=32, AdamW lr=0.003 ve 5.000 adımla hizalar. Sonra büyütülmüş
+GPT'yi Shakespeare'de ve Türkçe derlemede ayrı ayrı çalıştır:
+
+    python train.py --language shakespeare --stage gpt --steps 5000 --n-embd 128 --n-head 4 --n-layer 4 --block-size 128 --batch-size 64 --learning-rate 0.0003 --dropout 0.1
+    python collect_turkish.py
+    python train.py --language turkish --stage gpt --steps 5000 --n-embd 128 --n-head 4 --n-layer 4 --block-size 128 --batch-size 64 --learning-rate 0.0003 --dropout 0.1 --prompt "Bir zamanlar"
+
+İlk önce kısa duman testi için komutlara --steps 100 ekle. Varsayılan stage
+ayarları n_embd=128, n_head=4, n_layer=4, block_size=128, dropout=0.1 ve
 batch_size=64'tür. T4 belleği yetmezse batch_size=32; hâlâ yetmezse
-n_embd=96, n_layer=3, block_size=96 deneyip seçimi raporla. Eğitim süresi
+n_embd=96, n_layer=3, block_size=96 dene ve seçimini raporla. Eğitim süresi
 Colab oturumuna göre değişir.
 
-Sonuçlar results/<language>/results.json ve loss_table.csv içinde; üretilen
-örnekler stage_sample.txt dosyalarındadır. Parametre sayısı, val loss ve süre
-çalıştırma sırasında hesaplanır. Eğitim yapılmadan sayısal sonuç yazılmamıştır.
+Ablation sonuçları results/<language>/stages/; büyütülmüş model results/<language>/gpt/
+altına yazılır. Her klasörde results.json, loss_table.csv ve stage_sample.txt
+çıkar. Parametre sayısı, val loss ve süre çalıştırmada ölçülür; eğitim
+yapılmadan sayısal sonuç yazılmamıştır.
 
 ## Aşamalı loss tablosu
 
 --all-stages aynı derlemeyi, karakter sözlüğünü, train/val ayrımını, optimizer
 adım sayısını, öğrenme oranını ve batch seed düzenini kullanır. Her model aynı
-başlangıç seed'iyle yeniden kurulur.
+başlangıç seed'iyle yeniden kurulur. Ablation'da dropout kapalıdır; büyütülmüş
+GPT'ye dropout eklenir.
 
 | Sıra | Stage | Eklenen parça |
 |---:|---|---|
@@ -43,7 +53,7 @@ başlangıç seed'iyle yeniden kurulur.
 
 Her ekleme loss'u mutlaka düşürmez. Model boyutu ve eğitim dinamikleri de
 değişir; ölçülen değerleri olduğu gibi kaydet. Loss sabit seed ile seçilen
-validation batch'lerinin ortalamasıdır, tüm validation dosyasının eksiksiz
+validation batch'lerinin ortalamasıdır, bütün validation dosyasının eksiksiz
 taraması değildir.
 
 ## LayerNorm ve BatchNorm
@@ -61,13 +71,12 @@ yaz.
 collect_turkish.py Vikikaynak API'sinden Ömer Seyfettin hikâyeleri,
 Mehmet Âkif Ersoy şiirleri, Namık Kemal şiirleri, Tevfik Fikret şiirleri,
 Ziya Gökalp şiirleri ve Türkiye'de yayımlanan kamu malı eserler
-kategorilerindeki sayfaları derler. Korpus data/turkish.txt; sayfa başlığı, URL ve karakter sayısı
-data/turkish_sources.csv; toplam uzunluk ve farklı Unicode karakter sayısı
-data/turkish_metadata.json dosyalarına kaydolur. Karakter tokenizer'ında
-ş, ğ, İ gibi karakterlerin her biri ayrı token'dır. Yaklaşık 1 MB hedefini
-denetle; bu kategoriler hedefe ulaşmıyorsa daha fazla kamu malı eser
-kategorisini collect_turkish.py içindeki CATEGORIES listesine ekle.
-Her kaynağın sayfa lisansını incele ve atıfları kaynakça ile koru.
+kategorilerindeki sayfaları derler. Korpus data/turkish.txt; sayfa başlığı, URL
+ve karakter sayısı data/turkish_sources.csv; toplam uzunluk ve farklı Unicode
+karakter sayısı data/turkish_metadata.json dosyalarına kaydolur. Karakter
+tokenizer'ında ş, ğ, İ gibi karakterlerin her biri ayrı token'dır. Yaklaşık 1 MB
+hedefini denetle; gerçek ölçümleri raporla ve her kaynağın sayfa lisans/atıf
+bilgisini kaynakça ile koru.
 
 Shakespeare ve Türkçe val loss değerlerini doğrudan dil veya model kalitesi
 karşılaştırması olarak yorumlama. Karakter dağılımları, sözlük büyüklükleri,
@@ -76,9 +85,9 @@ metin türü ve veri uzunluğu farklıdır; loss tabanları değişir.
 ## Bonus 5(a): paralel head hesaplama
 
 MultiHeadAttention bütün Q/K/V projeksiyonlarını tek lineer katmanda üretir,
-head eksenine ayırır ve tek batched matmul düzeninde işler. test_models.py,
-ağırlıkları bağımsız Head modüllerine kopyalayıp iki yolun attention
-çıktılarını allclose ile karşılaştırır.
+head eksenine ayırır ve batched matmul ile işler. test_models.py ağırlıkları
+bağımsız Head modüllerine kopyalayıp iki yolun attention çıktılarını allclose
+ile karşılaştırır.
 
 ## Kaynaklar
 

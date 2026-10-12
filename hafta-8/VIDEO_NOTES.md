@@ -1,8 +1,9 @@
 # Hafta 8 video anlatım iskeleti
 
-Eğitimi çalıştırmadan sonuç, örnek veya loss rakamı ekleme. Kayıttan önce
-results/shakespeare/loss_table.csv, results/turkish/results.json ve
-results/turkish/gpt_sample.txt dosyalarını aç.
+Eğitimi çalıştırmadan sonuç, örnek veya loss rakamı ekleme. Önce
+results/shakespeare/stages/loss_table.csv ve
+results/shakespeare/gpt/results.json dosyalarını; Türkçe çalışma bitince de
+results/turkish/gpt/results.json ve gpt_sample.txt dosyalarını aç.
 
 1. Hafta 7 tek head'den multi-head'e geçiş ve loss farkı.
 2. Attention token'ları zaman boyunca konuşturur; feed-forward her token'ı

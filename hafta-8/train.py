@@ -101,7 +101,8 @@ def fit(stage, text, cfg, language, device):
     context = torch.tensor([tokenizer.encode(prompt)], dtype=torch.long, device=device)
     torch.manual_seed(cfg["sample_seed"])
     sample = tokenizer.decode(model.generate(context, cfg["sample_tokens"], cfg["temperature"])[0].cpu())
-    out = ROOT / "results" / language
+    run_name = "stages" if cfg["all_stages"] else stage
+    out = ROOT / "results" / language / run_name
     out.mkdir(parents=True, exist_ok=True)
     (out / f"{stage}_sample.txt").write_text(sample, encoding="utf-8")
     return {"stage": stage, "parameters": sum(p.numel() for p in model.parameters()),
@@ -148,7 +149,8 @@ def main():
                       "config": cfg}, ensure_ascii=False, indent=2))
     stages = STAGES if a.all_stages else [a.stage]
     results = [fit(stage, text, cfg, a.language, device) for stage in stages]
-    out = ROOT / "results" / a.language
+    run_name = "stages" if a.all_stages else a.stage
+    out = ROOT / "results" / a.language / run_name
     out.mkdir(parents=True, exist_ok=True)
     report = {"environment": {"python": platform.python_version(), "torch": torch.__version__,
                               "device": device},
