@@ -43,7 +43,7 @@ def load_text(language):
 def get_batch(data, split, block_size, batch_size, rng, device):
     cut = int(0.9 * len(data))
     source = data[:cut] if split == "train" else data[cut:]
-    starts = torch.randint(len(source) - block_size - 1, (batch_size,), generator=rng)
+    starts = torch.randint(len(source) - block_size, (batch_size,), generator=rng)
     x = torch.stack([source[int(i):int(i)+block_size] for i in starts])
     y = torch.stack([source[int(i)+1:int(i)+block_size+1] for i in starts])
     return x.to(device), y.to(device)
