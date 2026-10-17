@@ -10,6 +10,7 @@ Python 3.10+:
 python -m pip install -r requirements.txt
 python main.py
 python compare.py
+python visualize.py
 ```
 
 `main.py` önce `../hafta-8/data/turkish.txt` dosyasını arar. Bu dosya repoda bulunmadığı için şu an örnek Türkçe metni 120 kez tekrar ederek kullanır; rapordaki sonuçlar bu küçük, tekrar eden örnek içindir. Gerçek hafta 8 derlemesi eklendiğinde otomatik olarak onu kullanır. BPE hedef sözlüğü 320 byte/token'dır (256 başlangıç byte'ı + en çok 64 merge).
@@ -30,11 +31,14 @@ GPT-4 regex'i harf dizilerini, sayıları, noktalama işaretlerini ve boşluk/ye
 
 `compare.py` aynı kısa anlamı taşıyan iki paragrafı `tiktoken` içindeki `cl100k_base` ile sayar. Bu örnekte Türkçe: 10 kelime / 33 token = 3.30 token/kelime; İngilizce: 13 kelime / 21 token = 1.62 token/kelime. Yerel tokenizer, Türkçe paragrafın kendisinde eğitildiğinde 17 token (1.70 token/kelime) verir. Türkçede ekler ve cl100k_base'in İngilizce ağırlıklı sık parçaları token sayısını artırabilir; fakat eğitim verisi, paragraf uzunluğu ve kullanılan tokenizer karşılaştırmayı etkiler. Bu nedenle bu küçük örnek genel dil performansı sonucu değildir.
 
+`python visualize.py` komutu `outputs/index.html` ve üç PNG grafik üretir. `index.html` dosyasını tarayıcıda açınca deneyin kısa açıklaması, merge sıklıkları, regex karşılaştırması ve dil karşılaştırması görsel olarak incelenebilir.
+
 ## Önemli dosyalar
 
 - `tokenizer.py`: byte-BPE eğitimi, regex ön bölümlendirme, encode/decode
 - `main.py`: UTF-8 tablosu, merge deneyi, round-trip ve bozuk UTF-8 demosu
 - `compare.py`: `cl100k_base` Türkçe/İngilizce sayımı
+- `visualize.py`: PNG grafikler ve tarayıcıda açılan HTML raporu
 - `results.md`: çalıştırma çıktıları ve merge karşılaştırması
 
 Bu çalışma eğitim amaçlı küçük bir BPE uygulamasıdır; GPT-4 tokenizer'ının tam üretim uyarlaması değildir. Özellikle cl100k_base'in merge sözlüğü yüklenmediğinden birebir token-ID eşleşmesi iddia etmiyorum.
