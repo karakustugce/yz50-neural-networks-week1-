@@ -11,6 +11,7 @@ class ByteBPE:
         self.use_regex = use_regex
         self.pattern = re.compile(GPT4_PATTERN) if use_regex else None
         self.merges: list[tuple[bytes, bytes]] = []
+        self.merge_counts: list[int] = []
         self.vocab: dict[bytes, int] = {bytes([i]): i for i in range(256)}
         self.id_to_bytes: dict[int, bytes] = {i: bytes([i]) for i in range(256)}
 
@@ -40,6 +41,7 @@ class ByteBPE:
         initial = self._pair_counts(sequences)
         limit = max_merges if max_merges is not None else target_vocab_size - 256
         self.merges = []
+        self.merge_counts = []
         for _ in range(max(0, min(limit, target_vocab_size - 256))):
             counts = self._pair_counts(sequences)
             if not counts: break
@@ -48,6 +50,7 @@ class ByteBPE:
             if count < 2: break
             token = pair[0] + pair[1]
             self.merges.append(pair)
+            self.merge_counts.append(count)
             self.vocab[token] = len(self.vocab)
             self.id_to_bytes[self.vocab[token]] = token
             sequences = [self._merge_pair(seq, pair) for seq in sequences]
