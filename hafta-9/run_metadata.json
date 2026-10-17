@@ -1,0 +1,7 @@
+{
+  "corpus_source": "fallback sample repeated 120 times (hafta-8 data/turkish.txt not present)",
+  "corpus_characters": 42960,
+  "corpus_bytes": 47880,
+  "sample_round_trip": "Çağrı İstanbul'da 🎉",
+  "unicode_normalization": true
+}
