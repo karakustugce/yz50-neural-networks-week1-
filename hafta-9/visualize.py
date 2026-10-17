@@ -24,14 +24,14 @@ plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'axes.titleweigh
 # Chart 1: merge rank versus frequency
 fig, ax = plt.subplots(figsize=(11, 5.2))
 labels=[]; values=[]
-for a,b in regex.merges[:20]:
+for rank,(a,b) in enumerate(regex.merges[:20]):
     token=(a+b).decode('utf-8','replace')
     labels.append(token.replace(' ','<space>').replace('\n','<newline>'))
-    values.append(regex.initial_pair_counts.get((a,b),0))
+    values.append(regex.merge_counts[rank])
 colors=['#cf7548' if any(x in lab for x in 'çğıöşüÇĞİÖŞÜ') else '#397f92' for lab in labels]
 ax.bar(range(len(labels)),values,color=colors)
 ax.set_xticks(range(len(labels)),labels,rotation=45,ha='right')
-ax.set_ylabel('İlk eğitim verisindeki çift sayısı')
+ax.set_ylabel('Birleştirme anındaki çift sayısı')
 ax.set_title('İlk 20 BPE birleşmesi: hangi parçalar önce geliyor?')
 ax.grid(axis='y',alpha=.2); fig.tight_layout(); fig.savefig(OUT/'01_merge_frequencies.png',dpi=170); plt.close(fig)
 
