@@ -42,3 +42,10 @@ GPT-4 regex'i harf dizilerini, sayıları, noktalama işaretlerini ve boşluk/ye
 - `results.md`: çalıştırma çıktıları ve merge karşılaştırması
 
 Bu çalışma eğitim amaçlı küçük bir BPE uygulamasıdır; GPT-4 tokenizer'ının tam üretim uyarlaması değildir. Özellikle cl100k_base'in merge sözlüğü yüklenmediğinden birebir token-ID eşleşmesi iddia etmiyorum.
+
+
+## Grafik çıktısı
+
+![Hafta 9 BPE token ve sıkıştırma sonuçları](./bpe_results.svg)
+
+Grafik `results.md` içinde raporlanan örnek korpus ölçümlerini gösterir. Veri küçük ve tekrar eden bir metindir.
