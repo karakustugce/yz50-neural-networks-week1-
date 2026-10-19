@@ -1,9 +1,14 @@
-# Hafta 1 — Nöron ve gradient descent
+# Hafta 1 — Nöron ve Gradient Descent
 
-Çalışma kodu: [week1.py](./week1.py)
+Çalıştırma: `MPLBACKEND=Agg python week1.py` (grafikleri dosyaya kaydetmek için; grafik penceresi de açılabilir).
 
-## Grafik çıktısı
+Kodun çalıştırılması iki grafik üretir:
 
-![Hafta 1 gradient descent grafiği](./gradient_descent.svg)
+- `hafta1_weight_loss.png`: farklı ağırlıklardaki MSE loss
+- `hafta1_gradient_descent_loss.png`: kodun 30 eğitim adımındaki loss
 
-Grafikte y=2x örneği için loss eğrisi ve kodda kullanılan w₀=-1, learning rate=0.05 ile gradient descent'in ilk adımları gösterilir. Eğri MSE formülünden türetilmiştir; görsel çalışma kodunun kaydedilmiş bir terminal çıktısı değildir.
+## Çalıştırılmış çıktılar
+
+![Weight ve loss](./hafta1_weight_loss.svg)
+
+![Gradient descent loss](./hafta1_gradient_descent_loss.svg)
