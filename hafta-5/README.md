@@ -127,8 +127,8 @@ parametre güncellemelerini de doğruluyor.
 - [Karpathy egzersiz notebook'u](https://github.com/karpathy/nn-zero-to-hero/blob/master/lectures/makemore/makemore_part4_backprop.ipynb)
 
 
-## Grafik çıktısı
+## Kodun ürettiği grafik
 
-![Hafta 5 kayıtlı loss değerleri](./manual_backprop_results.svg)
+`python3 03_manual_training.py --steps 200000` çalıştırıldığında eğitim adımlarındaki minibatch loss ve son train/dev loss değerlerini birlikte gösteren `results/manual_training_loss.png` dosyası üretilir. Repodaki grafik kodu 1.000 adımlık test çalıştırmasından üretilmiştir; 200.000 adımlık tam deneyin sayısal sonuçları `results.json` içindedir.
 
-Grafik `results.json` içindeki son minibatch, train ve dev loss değerlerini gösterir; eğitim boyunca loss eğrisi değildir.
+![Autograd kullanılmadan eğitilen modelin loss grafiği](./results/manual_training_loss.svg)
