@@ -125,3 +125,10 @@ parametre güncellemelerini de doğruluyor.
 
 - Andrej Karpathy — [Building makemore Part 4: Becoming a Backprop Ninja](https://www.youtube.com/watch?v=q8SA3rM6ckI)
 - [Karpathy egzersiz notebook'u](https://github.com/karpathy/nn-zero-to-hero/blob/master/lectures/makemore/makemore_part4_backprop.ipynb)
+
+
+## Grafik çıktısı
+
+![Hafta 5 kayıtlı loss değerleri](./manual_backprop_results.svg)
+
+Grafik `results.json` içindeki son minibatch, train ve dev loss değerlerini gösterir; eğitim boyunca loss eğrisi değildir.
