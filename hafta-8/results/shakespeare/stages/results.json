@@ -1,0 +1,492 @@
+{
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.5.1+cpu",
+    "device": "cpu"
+  },
+  "data": {
+    "characters": 1115394,
+    "unique_characters": 65
+  },
+  "config": {
+    "language": "shakespeare",
+    "stage": "gpt",
+    "all_stages": true,
+    "steps": 1000,
+    "device": "auto",
+    "n_embd": 32,
+    "n_head": 4,
+    "n_layer": 1,
+    "block_size": 32,
+    "batch_size": 32,
+    "dropout": 0.0,
+    "learning_rate": 0.003,
+    "eval_interval": 100,
+    "eval_batches": 10,
+    "seed": 1337,
+    "batch_seed": 7331,
+    "eval_seed": 4242,
+    "sample_seed": 2026,
+    "sample_tokens": 120,
+    "temperature": 0.8,
+    "prompt": "ROMEO:\n"
+  },
+  "models": [
+    {
+      "stage": "bigram",
+      "parameters": 4225,
+      "train_loss": 2.7136610984802245,
+      "val_loss": 2.711944079399109,
+      "seconds": 13.55049355899996,
+      "history": [
+        {
+          "step": 0,
+          "train": 4.738586330413819,
+          "val": 4.72168002128601
+        },
+        {
+          "step": 100,
+          "train": 4.343765211105347,
+          "val": 4.329893970489502
+        },
+        {
+          "step": 200,
+          "train": 3.9985368728637694,
+          "val": 3.9869866132736207
+        },
+        {
+          "step": 300,
+          "train": 3.7033745288848876,
+          "val": 3.692879152297974
+        },
+        {
+          "step": 400,
+          "train": 3.4561301708221435,
+          "val": 3.4477471351623534
+        },
+        {
+          "step": 500,
+          "train": 3.2542914152145386,
+          "val": 3.2471229314804075
+        },
+        {
+          "step": 600,
+          "train": 3.091226410865784,
+          "val": 3.085699129104614
+        },
+        {
+          "step": 700,
+          "train": 2.9607118129730225,
+          "val": 2.955498695373535
+        },
+        {
+          "step": 800,
+          "train": 2.857620668411255,
+          "val": 2.8534277200698854
+        },
+        {
+          "step": 900,
+          "train": 2.77683539390564,
+          "val": 2.7735214948654177
+        },
+        {
+          "step": 1000,
+          "train": 2.7136610984802245,
+          "val": 2.711944079399109
+        }
+      ],
+      "sample": "ROMEO:\nI thme aSPSBNathang men st fe,\n\nBuof?Erer, llorith lies$s g teY!\nO d f pevevece?ENuU thanngCETth&by h ibe Goof?wow? H.\nB"
+    },
+    {
+      "stage": "single_head",
+      "parameters": 8321,
+      "train_loss": 2.428276300430298,
+      "val_loss": 2.435116720199585,
+      "seconds": 62.663613195999915,
+      "history": [
+        {
+          "step": 0,
+          "train": 4.178779268264771,
+          "val": 4.175411224365234
+        },
+        {
+          "step": 100,
+          "train": 2.9405807971954347,
+          "val": 2.949622130393982
+        },
+        {
+          "step": 200,
+          "train": 2.7789311170578004,
+          "val": 2.7870747327804564
+        },
+        {
+          "step": 300,
+          "train": 2.6490654706954957,
+          "val": 2.6475805044174194
+        },
+        {
+          "step": 400,
+          "train": 2.573410701751709,
+          "val": 2.5792422533035277
+        },
+        {
+          "step": 500,
+          "train": 2.528535747528076,
+          "val": 2.535478711128235
+        },
+        {
+          "step": 600,
+          "train": 2.498839545249939,
+          "val": 2.512311911582947
+        },
+        {
+          "step": 700,
+          "train": 2.4669225454330443,
+          "val": 2.4764328241348266
+        },
+        {
+          "step": 800,
+          "train": 2.454046940803528,
+          "val": 2.460068130493164
+        },
+        {
+          "step": 900,
+          "train": 2.437979507446289,
+          "val": 2.4443811178207397
+        },
+        {
+          "step": 1000,
+          "train": 2.428276300430298,
+          "val": 2.435116720199585
+        }
+      ],
+      "sample": "ROMEO:\nI than aling athe anmelll wie,\nARoofuere willor th liest ng the, wid wone noucer, bo thon ot ithe miu ite wond?\n\nMe Hen."
+    },
+    {
+      "stage": "multi_head",
+      "parameters": 9377,
+      "train_loss": 2.34987530708313,
+      "val_loss": 2.342974543571472,
+      "seconds": 17.508376291999866,
+      "history": [
+        {
+          "step": 0,
+          "train": 4.1873321533203125,
+          "val": 4.192721652984619
+        },
+        {
+          "step": 100,
+          "train": 2.8202073097229006,
+          "val": 2.831100249290466
+        },
+        {
+          "step": 200,
+          "train": 2.6627465963363646,
+          "val": 2.663395357131958
+        },
+        {
+          "step": 300,
+          "train": 2.588006830215454,
+          "val": 2.582568097114563
+        },
+        {
+          "step": 400,
+          "train": 2.541199040412903,
+          "val": 2.5266586542129517
+        },
+        {
+          "step": 500,
+          "train": 2.4963842153549196,
+          "val": 2.4784292459487913
+        },
+        {
+          "step": 600,
+          "train": 2.4567159175872804,
+          "val": 2.4500388860702516
+        },
+        {
+          "step": 700,
+          "train": 2.410390830039978,
+          "val": 2.404641532897949
+        },
+        {
+          "step": 800,
+          "train": 2.384940433502197,
+          "val": 2.3841397523880006
+        },
+        {
+          "step": 900,
+          "train": 2.3679030179977416,
+          "val": 2.364914393424988
+        },
+        {
+          "step": 1000,
+          "train": 2.34987530708313,
+          "val": 2.342974543571472
+        }
+      ],
+      "sample": "ROMEO:\nI that an theath ut mee ly we,\nad of wron, loot the, est now.\n\nPou dof ped\nWhee?\n\nHUKEG:\nE Brich:\nEin itt Gond?\n\nMe Hen."
+    },
+    {
+      "stage": "feedforward",
+      "parameters": 17729,
+      "train_loss": 2.249018144607544,
+      "val_loss": 2.2396781206130982,
+      "seconds": 22.515277523999885,
+      "history": [
+        {
+          "step": 0,
+          "train": 4.158869457244873,
+          "val": 4.156711864471435
+        },
+        {
+          "step": 100,
+          "train": 2.7745982885360716,
+          "val": 2.7913231372833254
+        },
+        {
+          "step": 200,
+          "train": 2.6001341581344604,
+          "val": 2.5993783712387084
+        },
+        {
+          "step": 300,
+          "train": 2.527806043624878,
+          "val": 2.5231608867645265
+        },
+        {
+          "step": 400,
+          "train": 2.4701923370361327,
+          "val": 2.4657859325408937
+        },
+        {
+          "step": 500,
+          "train": 2.423117232322693,
+          "val": 2.408309555053711
+        },
+        {
+          "step": 600,
+          "train": 2.374270963668823,
+          "val": 2.3607117176055907
+        },
+        {
+          "step": 700,
+          "train": 2.3376109123229982,
+          "val": 2.3207109928131104
+        },
+        {
+          "step": 800,
+          "train": 2.300369882583618,
+          "val": 2.286211919784546
+        },
+        {
+          "step": 900,
+          "train": 2.2732128620147707,
+          "val": 2.2589835643768312
+        },
+        {
+          "step": 1000,
+          "train": 2.249018144607544,
+          "val": 2.2396781206130982
+        }
+      ],
+      "sample": "ROMEO:\nSat me an for all and blot fersarsokserse, loovith liest now.\n\nPow dow pernother, bor Gon bleich:\nUru but my far\nMe Hen."
+    },
+    {
+      "stage": "residual",
+      "parameters": 17729,
+      "train_loss": 2.1550782918930054,
+      "val_loss": 2.171055555343628,
+      "seconds": 16.986980158999813,
+      "history": [
+        {
+          "step": 0,
+          "train": 4.459507322311401,
+          "val": 4.460823583602905
+        },
+        {
+          "step": 100,
+          "train": 2.627561926841736,
+          "val": 2.6327420473098755
+        },
+        {
+          "step": 200,
+          "train": 2.4916607618331907,
+          "val": 2.488141584396362
+        },
+        {
+          "step": 300,
+          "train": 2.404833126068115,
+          "val": 2.4055262565612794
+        },
+        {
+          "step": 400,
+          "train": 2.3457032442092896,
+          "val": 2.348080563545227
+        },
+        {
+          "step": 500,
+          "train": 2.295207476615906,
+          "val": 2.2972171783447264
+        },
+        {
+          "step": 600,
+          "train": 2.257210397720337,
+          "val": 2.2628417730331423
+        },
+        {
+          "step": 700,
+          "train": 2.2283835411071777,
+          "val": 2.229827857017517
+        },
+        {
+          "step": 800,
+          "train": 2.1911508798599244,
+          "val": 2.2098120212554933
+        },
+        {
+          "step": 900,
+          "train": 2.183741879463196,
+          "val": 2.193340563774109
+        },
+        {
+          "step": 1000,
+          "train": 2.1550782918930054,
+          "val": 2.171055555343628
+        }
+      ],
+      "sample": "ROMEO:\nI that and your for men my fems mood,\nThe slom it theest now.\n\nPit the peve, cer, bof theng with:\nTha int word?\n\nMe Hing"
+    },
+    {
+      "stage": "layernorm",
+      "parameters": 17921,
+      "train_loss": 2.113724684715271,
+      "val_loss": 2.149569272994995,
+      "seconds": 70.75556522500005,
+      "history": [
+        {
+          "step": 0,
+          "train": 4.286457920074463,
+          "val": 4.28793773651123
+        },
+        {
+          "step": 100,
+          "train": 2.6556729555130003,
+          "val": 2.667566728591919
+        },
+        {
+          "step": 200,
+          "train": 2.5002784967422484,
+          "val": 2.5020289182662965
+        },
+        {
+          "step": 300,
+          "train": 2.4106353998184202,
+          "val": 2.413986873626709
+        },
+        {
+          "step": 400,
+          "train": 2.342540454864502,
+          "val": 2.3453899383544923
+        },
+        {
+          "step": 500,
+          "train": 2.282904553413391,
+          "val": 2.28945906162262
+        },
+        {
+          "step": 600,
+          "train": 2.2460056066513063,
+          "val": 2.247819018363953
+        },
+        {
+          "step": 700,
+          "train": 2.2012901067733766,
+          "val": 2.2155046224594117
+        },
+        {
+          "step": 800,
+          "train": 2.1698224544525146,
+          "val": 2.189397668838501
+        },
+        {
+          "step": 900,
+          "train": 2.141957950592041,
+          "val": 2.1725064277648927
+        },
+        {
+          "step": 1000,
+          "train": 2.113724684715271,
+          "val": 2.149569272994995
+        }
+      ],
+      "sample": "ROMEO:\nI that and thealf and blow werk mood mren, lome thell st now.\n\nPEOR:\nKo mend cere bo thon be ithe me dibe my far\nand swa"
+    },
+    {
+      "stage": "gpt",
+      "parameters": 17921,
+      "train_loss": 2.113724684715271,
+      "val_loss": 2.149569272994995,
+      "seconds": 73.286059432,
+      "history": [
+        {
+          "step": 0,
+          "train": 4.286457920074463,
+          "val": 4.28793773651123
+        },
+        {
+          "step": 100,
+          "train": 2.6556729555130003,
+          "val": 2.667566728591919
+        },
+        {
+          "step": 200,
+          "train": 2.5002784967422484,
+          "val": 2.5020289182662965
+        },
+        {
+          "step": 300,
+          "train": 2.4106353998184202,
+          "val": 2.413986873626709
+        },
+        {
+          "step": 400,
+          "train": 2.342540454864502,
+          "val": 2.3453899383544923
+        },
+        {
+          "step": 500,
+          "train": 2.282904553413391,
+          "val": 2.28945906162262
+        },
+        {
+          "step": 600,
+          "train": 2.2460056066513063,
+          "val": 2.247819018363953
+        },
+        {
+          "step": 700,
+          "train": 2.2012901067733766,
+          "val": 2.2155046224594117
+        },
+        {
+          "step": 800,
+          "train": 2.1698224544525146,
+          "val": 2.189397668838501
+        },
+        {
+          "step": 900,
+          "train": 2.141957950592041,
+          "val": 2.1725064277648927
+        },
+        {
+          "step": 1000,
+          "train": 2.113724684715271,
+          "val": 2.149569272994995
+        }
+      ],
+      "sample": "ROMEO:\nI that and thealf and blow werk mood mren, lome thell st now.\n\nPEOR:\nKo mend cere bo thon be ithe me dibe my far\nand swa"
+    }
+  ],
+  "cross_language_warning": "Farklı dillerin karakter dağılımı ve sözlük boyutu değiştiği için val loss doğrudan dil/model kalite kıyası değildir."
+}
