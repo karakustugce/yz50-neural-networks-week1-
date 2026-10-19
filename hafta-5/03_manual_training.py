@@ -6,7 +6,11 @@ Ornekler:
 """
 
 import argparse
+from pathlib import Path
 
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 import torch
 import torch.nn.functional as F
 
@@ -56,6 +60,8 @@ def train(steps: int, batch_size: int, n_hidden: int):
     parameters = init_parameters(n_hidden=n_hidden, requires_grad=False)
     generator = torch.Generator().manual_seed(SEED)
     last_loss = None
+    history_steps = []
+    history_losses = []
 
     # Autograd grafigi kurulmaz: tum gradient'ler fused_parameter_grads'ten gelir.
     with torch.no_grad():
@@ -70,11 +76,29 @@ def train(steps: int, batch_size: int, n_hidden: int):
             last_loss = loss.item()
             if step % max(1, steps // 10) == 0 or step == steps - 1:
                 print(f"{step:7d}/{steps:7d} | minibatch loss {last_loss:.4f}")
+                history_steps.append(step + 1)
+                history_losses.append(last_loss)
 
     bnmean, bnvar = calibrate(parameters, Xtr)
     train_loss = evaluate(parameters, Xtr, Ytr, bnmean, bnvar)
     dev_loss = evaluate(parameters, Xdev, Ydev, bnmean, bnvar)
     print(f"\ntrain loss: {train_loss:.4f} | dev loss: {dev_loss:.4f}")
+
+    output_dir = Path(__file__).resolve().parent / "results"
+    output_dir.mkdir(exist_ok=True)
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.plot(history_steps, history_losses, marker="o", label="Minibatch loss")
+    ax.axhline(train_loss, color="#397f92", linestyle="--", label=f"Train loss = {train_loss:.4f}")
+    ax.axhline(dev_loss, color="#cf7548", linestyle="--", label=f"Dev loss = {dev_loss:.4f}")
+    ax.set(title="Manual backpropagation training", xlabel="Training step", ylabel="Cross-entropy loss")
+    ax.grid(alpha=0.25)
+    ax.legend()
+    fig.tight_layout()
+    chart_path = output_dir / "manual_training_loss.png"
+    fig.savefig(chart_path, dpi=160)
+    fig.savefig(output_dir / "manual_training_loss.svg", format="svg")
+    plt.close(fig)
+    print(f"Loss grafiği kaydedildi: {chart_path}")
     return {
         "steps": steps,
         "batch_size": batch_size,
