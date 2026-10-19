@@ -97,8 +97,8 @@ ile karşılaştırır.
 - Attention Is All You Need: https://arxiv.org/abs/1706.03762
 
 
-## Mimari görseli
+## Kodun ürettiği loss grafiği
 
-![Character GPT mimarisi ve aşamalar](./gpt_architecture.svg)
+`train.py` eğitim tamamlandığında validation loss grafiğini `results/<dil>/<stage veya stages>/validation_loss.png` dosyasına kaydeder. `--all-stages` kullanıldığında grafikte tüm aşamalar yer alır. Repodaki örnek çıktı, CPU üzerinde Shakespeare verisiyle, her aşama için 1.000 adım ve her ölçümde 10 batch kullanılarak üretilmiştir. README’deki 5.000 adımlık çalıştırma komutunu kullanırsan grafik yeniden üretilir ve daha uzun eğitim sonucunu gösterir.
 
-Bu, model bileşenlerinin şemasıdır. Eğitim çalıştırılıp sonuçlar kaydedilene kadar loss grafiği veya ölçülmüş model karşılaştırması olarak yorumlanmamalıdır.
+![Çalıştırılmış Hafta 8 validation loss grafiği](./results/shakespeare/stages/validation_loss.svg)
