@@ -95,3 +95,10 @@ ile karşılaştırır.
 - Kod: https://github.com/karpathy/ng-video-lecture ve https://github.com/karpathy/nanoGPT
 - Vikikaynak: https://tr.wikisource.org/
 - Attention Is All You Need: https://arxiv.org/abs/1706.03762
+
+
+## Mimari görseli
+
+![Character GPT mimarisi ve aşamalar](./gpt_architecture.svg)
+
+Bu, model bileşenlerinin şemasıdır. Eğitim çalıştırılıp sonuçlar kaydedilene kadar loss grafiği veya ölçülmüş model karşılaştırması olarak yorumlanmamalıdır.
