@@ -44,8 +44,19 @@ GPT-4 regex'i harf dizilerini, sayıları, noktalama işaretlerini ve boşluk/ye
 Bu çalışma eğitim amaçlı küçük bir BPE uygulamasıdır; GPT-4 tokenizer'ının tam üretim uyarlaması değildir. Özellikle cl100k_base'in merge sözlüğü yüklenmediğinden birebir token-ID eşleşmesi iddia etmiyorum.
 
 
-## Grafik çıktısı
+## Kodun ürettiği grafikler
 
-![Hafta 9 BPE token ve sıkıştırma sonuçları](./bpe_results.svg)
+`python visualize.py` çalıştırıldığında aşağıdaki PNG dosyaları `outputs/` klasörüne kaydedilir. Bunlar kodun ürettiği görsellerdir; veride `hafta-8/data/turkish.txt` yoksa küçük örnek paragraf 120 kez tekrarlanır:
 
-Grafik `results.md` içinde raporlanan örnek korpus ölçümlerini gösterir. Veri küçük ve tekrar eden bir metindir.
+- `01_merge_frequencies.png`
+- `02_regex_comparison.png`
+- `03_language_comparison.png`
+
+Bu grafikler, hafta 8 Türkçe veri dosyası bulunmazsa scriptin kullandığı küçük ve tekrar edilen örnek metne dayanır.
+
+
+![BPE merge frekansları](./outputs/01_merge_frequencies.svg)
+
+![Regex karşılaştırması](./outputs/02_regex_comparison.svg)
+
+![Dil karşılaştırması](./outputs/03_language_comparison.svg)
