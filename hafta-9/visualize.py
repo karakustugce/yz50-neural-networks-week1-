@@ -33,7 +33,7 @@ ax.bar(range(len(labels)),values,color=colors)
 ax.set_xticks(range(len(labels)),labels,rotation=45,ha='right')
 ax.set_ylabel('Birleştirme anındaki çift sayısı')
 ax.set_title('İlk 20 BPE birleşmesi: hangi parçalar önce geliyor?')
-ax.grid(axis='y',alpha=.2); fig.tight_layout(); fig.savefig(OUT/'01_merge_frequencies.png',dpi=170); plt.close(fig)
+ax.grid(axis='y',alpha=.2); fig.tight_layout(); fig.savefig(OUT/'01_merge_frequencies.png',dpi=170); fig.savefig(OUT/'01_merge_frequencies.svg'); plt.close(fig)
 
 # Chart 2: token count + compression ratio
 fig, axes=plt.subplots(1,2,figsize=(10,4.4))
@@ -42,7 +42,7 @@ axes[0].set_title('Metni kaç token temsil ediyor?'); axes[0].set_ylabel('Token 
 ratios=[byte_count/plain_count,byte_count/regex_count]
 axes[1].bar(['Regex yok','GPT-4 regex'],ratios,color=['#397f92','#cf7548'])
 axes[1].set_title('Sıkıştırma: byte / token'); axes[1].set_ylabel('Token başına byte'); axes[1].grid(axis='y',alpha=.2)
-fig.suptitle(f'BPE karşılaştırması  |  {byte_count:,} UTF-8 byte',fontweight='bold'); fig.tight_layout(); fig.savefig(OUT/'02_regex_comparison.png',dpi=170); plt.close(fig)
+fig.suptitle(f'BPE karşılaştırması  |  {byte_count:,} UTF-8 byte',fontweight='bold'); fig.tight_layout(); fig.savefig(OUT/'02_regex_comparison.png',dpi=170); fig.savefig(OUT/'02_regex_comparison.svg'); plt.close(fig)
 
 # Chart 3: cl100k Turkish/English and locally trained Turkish BPE
 import tiktoken
@@ -57,7 +57,7 @@ per=[c/w for c,w in zip(counts,words)]
 fig,ax=plt.subplots(figsize=(8.5,4.8)); bars=ax.bar(labels,per,color=['#cf7548','#397f92','#72a78e'])
 for bar,c,w in zip(bars,counts,words): ax.text(bar.get_x()+bar.get_width()/2,bar.get_height()+.05,f'{c} token / {w} kelime',ha='center',fontsize=9)
 ax.set_ylabel('Token / kelime'); ax.set_title('Aynı anlam çevresinde token maliyeti')
-ax.set_ylim(0,max(per)*1.3); ax.grid(axis='y',alpha=.2); fig.tight_layout(); fig.savefig(OUT/'03_language_comparison.png',dpi=170); plt.close(fig)
+ax.set_ylim(0,max(per)*1.3); ax.grid(axis='y',alpha=.2); fig.tight_layout(); fig.savefig(OUT/'03_language_comparison.png',dpi=170); fig.savefig(OUT/'03_language_comparison.svg'); plt.close(fig)
 
 source='Hafta 8 Türkçe derlemi' if DATA.exists() else 'Örnek Türkçe paragraf (120 tekrar; hafta 8 derlemi dosyası bulunamadı)'
 summary=f'''<!doctype html><html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Hafta 9 BPE sonuçları</title><style>body{{font:16px/1.55 system-ui,sans-serif;max-width:900px;margin:36px auto;padding:0 18px;color:#202a31}}h1,h2{{color:#183e4c}}img{{max-width:100%;border-radius:10px;box-shadow:0 2px 14px #0002;margin:8px 0 24px}}.note{{background:#fff4df;padding:14px 18px;border-left:4px solid #cf7548}}</style><h1>Hafta 9 — BPE tokenizer</h1><p>Byte Pair Encoding, sık görülen bitişik byte parçalarını birleştirerek metni daha az token ile temsil eder.</p><p class="note"><b>Veri:</b> {html.escape(source)}. Gerçek hafta 8 dosyası bulunduğunda kod onu otomatik kullanır.</p><h2>1. En sık birleşen parçalar</h2><p>Her yeni token, eğitim verisinde sık geçen bitişik bir çiftten oluşur. Türkçe harflerin UTF-8 byte parçaları da birleştirilebilir.</p><img src="01_merge_frequencies.png"><h2>2. Regex ön bölümlendirmesi ne değiştiriyor?</h2><p>Regex kelime ve noktalama sınırlarını önceden belirler; BPE birleşmeleri parça sınırlarını aşamaz.</p><img src="02_regex_comparison.png"><h2>3. Türkçe ve İngilizce token sayısı</h2><p>cl100k_base bu örneklerde Türkçe paragrafı İngilizceye göre daha çok token'a ayırıyor. Yerel BPE Türkçe paragraf üzerinde eğitildiği için onu daha kısa temsil edebiliyor. Küçük örnek genellenemez.</p><img src="03_language_comparison.png"><p><b>Ölçüm:</b> {byte_count:,} byte; regex olmadan {plain_count:,} token, regex ile {regex_count:,} token. Round-trip testi Türkçe karakter ve emojiyle başarılı.</p></html>'''
