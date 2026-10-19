@@ -8,6 +8,9 @@ import urllib.request
 from pathlib import Path
 
 import torch
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 from models import BigramLanguageModel, GPTLanguageModel
 
 ROOT = Path(__file__).resolve().parent
@@ -163,6 +166,20 @@ def main():
         w.writerow(["stage", "parameters", "train_loss_nats_per_char", "val_loss_nats_per_char", "training_seconds"])
         for r in results:
             w.writerow([r["stage"], r["parameters"], r["train_loss"], r["val_loss"], r["seconds"]])
+    fig, ax = plt.subplots(figsize=(9, 5.5))
+    for result in results:
+        history = result["history"]
+        ax.plot([point["step"] for point in history], [point["val"] for point in history], marker="o", label=result["stage"])
+    ax.set(title=f"Validation loss by training stage — {a.language}", xlabel="Training step", ylabel="Validation cross-entropy (nats/character)")
+    ax.grid(alpha=0.25)
+    if len(results) > 1:
+        ax.legend()
+    fig.tight_layout()
+    chart_path = out / "validation_loss.png"
+    fig.savefig(chart_path, dpi=160)
+    fig.savefig(out / "validation_loss.svg", format="svg")
+    plt.close(fig)
+    print(f"Loss grafiği yazıldı: {chart_path}", flush=True)
     print(f"Sonuçlar yazıldı: {out}", flush=True)
 
 
