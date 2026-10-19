@@ -274,7 +274,11 @@ for weight in manual_weights:
 # ============================================================
 
 
+from pathlib import Path
+
 import matplotlib.pyplot as plt
+
+OUTPUT_DIR = Path(__file__).resolve().parent
 
 
 plt.figure()
@@ -291,6 +295,8 @@ plt.title("Weight Değiştikçe Loss")
 
 plt.grid()
 
+plt.savefig(OUTPUT_DIR / "hafta1_weight_loss.png", dpi=160, bbox_inches="tight")
+plt.savefig(OUTPUT_DIR / "hafta1_weight_loss.svg", bbox_inches="tight")
 plt.show()
 
 
@@ -458,4 +464,6 @@ plt.title(
 
 plt.grid()
 
+plt.savefig(OUTPUT_DIR / "hafta1_gradient_descent_loss.png", dpi=160, bbox_inches="tight")
+plt.savefig(OUTPUT_DIR / "hafta1_gradient_descent_loss.svg", bbox_inches="tight")
 plt.show()
